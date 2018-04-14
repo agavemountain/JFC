@@ -39,6 +39,9 @@ ENABLE_LANGUAGE(CXX)
 ENABLE_LANGUAGE(C)
 ENABLE_TESTING()
 
+# FORCE C++ 11 
+set (CMAKE_CXX_STANDARD 11)
+
 #
 # select the release build type by default to get optimization flags
 #
