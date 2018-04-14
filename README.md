@@ -1,4 +1,5 @@
-# atriacore
+# JFC
+Joe's Foundation Classes
 Cross-platform class library
 
 This project contains shared code that I've written and 
