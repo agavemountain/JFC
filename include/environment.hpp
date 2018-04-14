@@ -19,8 +19,8 @@
 #define OS_ENV_HPP_
 #include <string>
 #include <vector>
-//! Atria Dynamics namespace
-namespace atria
+//! JFC namespace
+namespace JFC
 {
 
 //! @brief Environment variables 
@@ -164,6 +164,6 @@ public:
 
 };
 
-}; // namespace atria
+}; // namespace JFC
 
 #endif

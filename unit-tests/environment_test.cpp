@@ -17,7 +17,7 @@
  */
  #include <cppunit/extensions/HelperMacros.h>
  #include <environment.hpp>
- using namespace atria;
+ using namespace JFC;
  using namespace std;   // so sue me, I'm lazy tonight.
 
 

@@ -52,7 +52,7 @@ int clearenv(void)
 }
 #endif
 
-namespace atria
+namespace JFC
 {
 
 std::string Environment::get(std::string const& a_key)
