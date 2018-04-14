@@ -17,8 +17,8 @@
 
 FILE(GLOB UnitTests_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*_test.cpp" )
 
-ADD_EXECUTABLE(ut_atriacore cppunit-test-main.cpp ${UnitTests_SRCS} )
-TARGET_LINK_LIBRARIES(ut_atriacore cppunit atriacore)
+ADD_EXECUTABLE(ut_jfc cppunit-test-main.cpp ${UnitTests_SRCS} )
+TARGET_LINK_LIBRARIES(ut_jfc cppunit jfc)
 
-ADD_TEST(ut_atriacore ut_atriacore)
+ADD_TEST(ut_jfc ut_jfc)
 
