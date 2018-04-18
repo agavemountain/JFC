@@ -15,72 +15,72 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- #include <cppunit/extensions/HelperMacros.h>
- #include <environment.hpp>
- using namespace JFC;
- using namespace std;   // so sue me, I'm lazy tonight.
+#include <cppunit/extensions/HelperMacros.h>
+#include <environment.hpp>
+using namespace JFC;
+using namespace std;   // so sue me, I'm lazy tonight.
 
 
 
- class environment_test : public CppUnit::TestFixture {
-  CPPUNIT_TEST_SUITE( environment_test );
+class environment_test : public CppUnit::TestFixture {
+    CPPUNIT_TEST_SUITE( environment_test );
     CPPUNIT_TEST( test_get );
     CPPUNIT_TEST( test_exists );
     CPPUNIT_TEST( test_home );
     CPPUNIT_TEST( test_set_and_erase );
-  CPPUNIT_TEST_SUITE_END();
-  public:
- 
-  void test_get()
-  {
-    Environment env;
-    const char *HOME= "HOME";
-    char const *home = getenv("HOME");
+    CPPUNIT_TEST_SUITE_END();
+public:
 
-    string strhome = env.get(HOME);
-    CPPUNIT_ASSERT( strhome == home );
+    void test_get()
+    {
+        Environment env;
+        const char *HOME= "HOME";
+        char const *home = getenv("HOME");
 
-    strhome = HOME;
-    CPPUNIT_ASSERT( env.get(strhome) == home);
+        string strhome = env.get(HOME);
+        CPPUNIT_ASSERT( strhome == home );
 
-    CPPUNIT_ASSERT( env[strhome] == home);
-    CPPUNIT_ASSERT( env[HOME] == home);
-  }
+        strhome = HOME;
+        CPPUNIT_ASSERT( env.get(strhome) == home);
 
-  void test_exists()
-  {
-    Environment env;
-    const char *xyz="XZVSS123";
-    const char *home="HOME";
+        CPPUNIT_ASSERT( env[strhome] == home);
+        CPPUNIT_ASSERT( env[HOME] == home);
+    }
 
-    CPPUNIT_ASSERT( !env.isExists(xyz) );
-    CPPUNIT_ASSERT( env.isExists(home) );
+    void test_exists()
+    {
+        Environment env;
+        const char *xyz="XZVSS123";
+        const char *home="HOME";
 
-    string tmp = xyz;
-    CPPUNIT_ASSERT( !env.isExists( tmp ) );
-    tmp = home;
-    CPPUNIT_ASSERT( env.isExists(  tmp ) );
-  }
+        CPPUNIT_ASSERT( !env.isExists(xyz) );
+        CPPUNIT_ASSERT( env.isExists(home) );
 
-  void test_home()
-  {
-    Environment env;
-    char const *home = getenv("HOME");
-    CPPUNIT_ASSERT( env.home_path() == home);
-  }
+        string tmp = xyz;
+        CPPUNIT_ASSERT( !env.isExists( tmp ) );
+        tmp = home;
+        CPPUNIT_ASSERT( env.isExists(  tmp ) );
+    }
 
-  void test_set_and_erase()
-  {
-    Environment env;
-    const char *xyz="XZVSS123";
-    CPPUNIT_ASSERT( !env.isExists(xyz) );
-    CPPUNIT_ASSERT( !env.set(xyz, xyz));
-    CPPUNIT_ASSERT( env.get(xyz) == xyz);
-    CPPUNIT_ASSERT( env.isExists(xyz) );
-    CPPUNIT_ASSERT( !env.erase(xyz));
-    CPPUNIT_ASSERT( !env.isExists(xyz) );
-  }
+    void test_home()
+    {
+        Environment env;
+        char const *home = getenv("HOME");
+        CPPUNIT_ASSERT( env.home_path() == home);
+    }
 
- };
+    void test_set_and_erase()
+    {
+        Environment env;
+        const char *xyz="XZVSS123";
+        CPPUNIT_ASSERT( !env.isExists(xyz) );
+        CPPUNIT_ASSERT( !env.set(xyz, xyz));
+        CPPUNIT_ASSERT( env.get(xyz) == xyz);
+        CPPUNIT_ASSERT( env.isExists(xyz) );
+        CPPUNIT_ASSERT( !env.erase(xyz));
+        CPPUNIT_ASSERT( !env.isExists(xyz) );
+    }
 
- CPPUNIT_TEST_SUITE_REGISTRATION( environment_test );
+};
+
+CPPUNIT_TEST_SUITE_REGISTRATION( environment_test );
