@@ -15,7 +15,7 @@
 # limitations under the License.
 ##############################################################################
 
-ADD_LIBRARY(atriacore SHARED 
+ADD_LIBRARY(jfc SHARED 
 	environment.cpp
 )
 
