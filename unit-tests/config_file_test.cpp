@@ -15,23 +15,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- #include <cppunit/extensions/HelperMacros.h>
- #include <config_file.hpp>
- using namespace JFC;
- using namespace std;   // so sue me, I'm lazy tonight.
+#include <cppunit/extensions/HelperMacros.h>
+#include <config_file.hpp>
+#include <iostream>
+#include <sstream>
+using namespace JFC;
+using namespace std;   // so sue me, I'm lazy tonight.
 
 
- class config_file_test : public CppUnit::TestFixture {
-  CPPUNIT_TEST_SUITE( config_file_test );
-    CPPUNIT_TEST( test_get );
-  CPPUNIT_TEST_SUITE_END();
+class config_file_test : public CppUnit::TestFixture {
+    CPPUNIT_TEST_SUITE( config_file_test );
+    CPPUNIT_TEST( test_parse );
+    CPPUNIT_TEST( test_get_key );
+    CPPUNIT_TEST_SUITE_END();
 
-  public:
+public:
 
-  void test_get()
-  {
-    CPPUNIT_ASSERT( true );
-  }
- };
+    void test_parse()
+    {
+        ConfigurationFile target;
+        std::string cfg = "[global]\nuser = Joe Blow     \nemail=a@b.com\n[CPP]\nname = XYZ       \n"
+                          "default = true\n\n[section2]\n";
 
- CPPUNIT_TEST_SUITE_REGISTRATION( config_file_test );
+        std::stringstream ss(cfg);
+        target.parse(ss);
+
+        CPPUNIT_ASSERT( target.get_number_of_sections() == 2 );
+    }
+
+    void test_get_key() {
+        ConfigurationFile target;
+        std::string cfg = "[global]\nuser = Joe Blow     \nemail=a@b.com\n[CPP]\nname = XYZ       \n"
+                          "default = true\n\n[section2]\n";
+
+        std::stringstream ss(cfg);
+        target.parse(ss);
+
+        string value = target.get_value("global", "user");
+        CPPUNIT_ASSERT( value.size() > 0 );
+        CPPUNIT_ASSERT( value == "Joe Blow" );
+
+        value= target.get_value("bad section", "badkey");
+        CPPUNIT_ASSERT( value.size() == 0 );
+    }
+};
+
+CPPUNIT_TEST_SUITE_REGISTRATION( config_file_test );
