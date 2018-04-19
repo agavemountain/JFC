@@ -17,5 +17,6 @@
 
 ADD_LIBRARY(jfc SHARED 
 	environment.cpp
+	configurationfile.cpp
 )
 
