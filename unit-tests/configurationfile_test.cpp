@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 #include <cppunit/extensions/HelperMacros.h>
-#include <config_file.hpp>
+#include <configurationfile.hpp>
 #include <iostream>
 #include <sstream>
 using namespace JFC;
