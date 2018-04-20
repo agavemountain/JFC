@@ -39,7 +39,7 @@ public:
         // it should be left alone.
         CPPUNIT_ASSERT_EQUAL(source, wordwrap( source, 80) ) ;
 
-        // if
+        //
         CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 9) );
         CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 8) );
 
@@ -47,7 +47,6 @@ public:
         // bad things will happen.
         //CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 6) );
         //CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 5) ) ;
-
     }
 
 };

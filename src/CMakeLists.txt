@@ -19,6 +19,7 @@ ADD_LIBRARY(jfc SHARED
 	environment.cpp
 	configurationfile.cpp
 	string_utilities.cpp
+	escape.cpp
 )
 
 install(TARGETS jfc DESTINATION bin)
