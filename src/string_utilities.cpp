@@ -18,7 +18,13 @@ std::string wordwrap( std::string str, int width = 80 )
     }
 
     return str;
+}
 
+std::string replace_copy(const std::string& source, const std::string& findstr, const std::string& replacestr)
+{
+    std::string result = source;
+    replace(result, findstr, replacestr);
+    return result;
 }
 
 

@@ -7,6 +7,7 @@ using namespace std;   // so sue me, I'm lazy
 class string_utilities_test : public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE( string_utilities_test );
     CPPUNIT_TEST( test_replace );
+    CPPUNIT_TEST( test_wordwrap );
     CPPUNIT_TEST_SUITE_END();
 public:
 
@@ -20,8 +21,34 @@ public:
         replace (original, replace_this, with_this);
 
         CPPUNIT_ASSERT_EQUAL ( expected, original );
+
+        CPPUNIT_ASSERT_EQUAL(replace_copy("abcdef", "foo", "bar"), string("abcdef"));
+        CPPUNIT_ASSERT_EQUAL(replace_copy("abcdef", "ab", "cd"), string("cdcdef"));
+        CPPUNIT_ASSERT_EQUAL(replace_copy("abcdef", "ab", ""), string("cdef"));
+        CPPUNIT_ASSERT_EQUAL(replace_copy("abcabc", "ab", ""), string("cc"));
+        CPPUNIT_ASSERT_EQUAL(replace_copy("abcdef", "", ""), string("abcdef"));
+
     }
 
+    void test_wordwrap()
+    {
+        string source = "Executive Chance";
+        string expected = "Executive\nChance";
+
+        // if the source string is less than the number of characters,
+        // it should be left alone.
+        CPPUNIT_ASSERT_EQUAL(source, wordwrap( source, 80) ) ;
+
+        // if
+        CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 9) );
+        CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 8) );
+
+        // BUG: if the first word is longer than the wrap column,
+        // bad things will happen.
+        //CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 6) );
+        //CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 5) ) ;
+
+    }
 
 };
 

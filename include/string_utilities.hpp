@@ -22,14 +22,11 @@
 	functions that should have been included in the standard library
 	years ago.
 
- \section Examples
-
- For the following examples, we assume we are using the following imaginary example file (named myfile),
- with the following content:
- \code
- This is a test
- This is a comment
- \endcode
+	Note, some of the functions are template functions, and others
+	are concrete.  The template functions will handle basic_string, string, and
+	wstring templates, but nobody really uses wstring.  If you are,
+	then you are doing something wrong.  Best practices is to use
+	string then transform to UTF-8/UTF-16...
 
 */
 
@@ -42,25 +39,40 @@ namespace JFC
  * This function will search for the exact text string specified and
  * replace all instances within a string.
  *
- * \param str	        string to be modified
- * \param replaceThis	text to be searched for and replaced, (this is old substring to be replaced).
- * \param withThis		text to replace the original found text
+ * \param source        string to be modified
+ * \param findstr 	 	text to be searched for and replaced, (this is old substring to be replaced).
+ * \param replacestr	text to replace the original found text
  *
  */
 template <class T>
-void replace(T& source, const T& find, const T& replace)
+void replace(T& source, const T& findstr, const T& replacestr)
 {
     size_t j;
-    for (; (j = source.find( find )) != T::npos;)
+    //! special case: findstr = ""
+    if (findstr.length()==0) return;
+
+    for (; (j = source.find( findstr )) != T::npos;)
     {
-        source.replace( j, find.length(), replace );
+        source.replace( j, findstr.length(), replacestr );
     }
 }
 
-
-//! To be implemented (merged from other projects) with unit tests.
-namespace unimplemented
-{
+/**
+ * \brief Search and replace text within a string, returning the resulting string.
+ *
+ * This function will search for the exact text string specified and
+ * replace all instances within a string.  Unlike the replace function, this
+ * function will NOT modify the original string and will return the resultant
+ * string.
+ *
+ * \param source        string to be modified
+ * \param findstr 	 	text to be searched for and replaced, (this is old substring to be replaced).
+ * \param replacestr	text to replace the original found text
+ *
+ * \returns
+ * 		modified string object.
+ */
+std::string replace_copy(const std::string& source, const std::string& findstr, const std::string& replacestr);
 
 /**
  * \note : I don't remember where this came from, but it needs some
@@ -85,6 +97,11 @@ namespace unimplemented
  *
  */
 std::string wordwrap( std::string str, int width ) ;
+
+//! To be implemented (merged from other projects) with unit tests.
+namespace unimplemented
+{
+
 
 /**
  * \brief Center justify referenced string object.
