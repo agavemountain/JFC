@@ -31,6 +31,9 @@ IF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     MESSAGE(FATAL_ERROR "Prevented in-tree built. This is bad practice.")	
 ENDIF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 
+# Turn off that stupid warning on OS X
+set(CMAKE_MACOSX_RPATH 1)
+
 ##############################################################################
 # Project Setup
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
@@ -107,6 +110,11 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(unit-tests)
 
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.hpp*")
+    
 ##############################################################################
 # Print Summary
 ##############################################################################
