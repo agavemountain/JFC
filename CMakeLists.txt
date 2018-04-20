@@ -107,6 +107,11 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(unit-tests)
 
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.hpp*")
+    
 ##############################################################################
 # Print Summary
 ##############################################################################
