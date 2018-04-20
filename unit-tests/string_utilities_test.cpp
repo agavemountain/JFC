@@ -12,12 +12,12 @@ public:
 
     void test_replace()
     {
-    	std::string original = "this is string example....wow!!! this is really string";
-    	std::string replace_this = "is";
-    	std::string with_this = "was";
-    	std::string expected = "thwas was string example....wow!!! thwas was really string";
+        std::string original = "this is string example....wow!!! this is really string";
+        std::string replace_this = "is";
+        std::string with_this = "was";
+        std::string expected = "thwas was string example....wow!!! thwas was really string";
 
-    	replace (original, replace_this, with_this);
+        replace (original, replace_this, with_this);
 
         CPPUNIT_ASSERT_EQUAL ( expected, original );
     }

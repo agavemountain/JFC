@@ -18,10 +18,10 @@ namespace Patterns
 template <class T>
 class NonCopyable
 {
-  protected:
+protected:
     NonCopyable () {}
     ~NonCopyable () {} /// Protected non-virtual destructor
-  private:
+private:
     NonCopyable (const NonCopyable &);
     NonCopyable & operator = (const NonCopyable &);
 };

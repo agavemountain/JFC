@@ -63,6 +63,30 @@ namespace unimplemented
 {
 
 /**
+ * \note : I don't remember where this came from, but it needs some
+ * work.
+ *
+ * This is a word wrap function that will add line breaks.
+ *
+ * Word wrap is the additional feature of most text editors, word processors,
+ * and web browsers, of breaking lines between and not within words, except
+ * when a single word is longer than a line.
+ *
+ * My implementation uses a greedy algorithm, the pseudocode is as
+ * follows:
+ *
+ *	SpaceLeft := LineWidth
+ *	for each Word in Text
+ *    if Width(Word) > SpaceLeft
+ *        insert line break before Word in Text
+ *        SpaceLeft := LineWidth - Width(Word)
+ *    else
+ *        SpaceLeft := SpaceLeft - (Width(Word) + SpaceWidth)
+ *
+ */
+std::string wordwrap( std::string str, int width ) ;
+
+/**
  * \brief Center justify referenced string object.
  *
  * \param str		string to be center justified
