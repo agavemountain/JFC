@@ -14,41 +14,41 @@ class escape_test : public CppUnit::TestFixture {
 public:
 
 
-void test_isPrintable()
-{
-    for (char ch = 0; ch<0x20; ch++)
+    void test_isPrintable()
     {
-        CPPUNIT_ASSERT_EQUAL( false, isPrintableASCII(ch) );
+        for (char ch = 0; ch<0x20; ch++)
+        {
+            CPPUNIT_ASSERT_EQUAL( false, isPrintableASCII(ch) );
+        }
     }
-}
 
-void test_isControl()
-{
-    for (char ch = 0; ch<0x20; ch++)
+    void test_isControl()
     {
-        CPPUNIT_ASSERT_EQUAL( true, isControl(ch) );
+        for (char ch = 0; ch<0x20; ch++)
+        {
+            CPPUNIT_ASSERT_EQUAL( true, isControl(ch) );
+        }
     }
-}
 
-void test_escapeCPP()
-{
-    const char * teststr = "\"\'\?";
-    const char * testresult = "\\\"\\\'\\\?";
-    const char * teststr2 = "abc";
-    string tmp = teststr;
-    string tmp2 = testresult;
-    tmp = encode_cpp(tmp);
+    void test_escapeCPP()
+    {
+        const char * teststr = "\"\'\?";
+        const char * testresult = "\\\"\\\'\\\?";
+        const char * teststr2 = "abc";
+        string tmp = teststr;
+        string tmp2 = testresult;
+        tmp = encode_cpp(tmp);
 
-    CPPUNIT_ASSERT_EQUAL(tmp, tmp2);
+        CPPUNIT_ASSERT_EQUAL(tmp, tmp2);
 
-    tmp = teststr2;
-    tmp2 = teststr2;
+        tmp = teststr2;
+        tmp2 = teststr2;
 
-    encode_cpp(tmp);
+        encode_cpp(tmp);
 
-    CPPUNIT_ASSERT_EQUAL(tmp, tmp2);
+        CPPUNIT_ASSERT_EQUAL(tmp, tmp2);
 
-}
+    }
 
 }; //class
 
