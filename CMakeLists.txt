@@ -37,7 +37,7 @@ set(CMAKE_MACOSX_RPATH 1)
 ##############################################################################
 # Project Setup
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-PROJECT(atriacore)
+PROJECT(jfc)
 ENABLE_LANGUAGE(CXX)
 ENABLE_LANGUAGE(C)
 ENABLE_TESTING()
@@ -111,10 +111,12 @@ ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(unit-tests)
 
 INSTALL (
-    DIRECTORY ${CMAKE_SOURCE_DIR}/include/
-    DESTINATION include
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include
+    DESTINATION include/JFC
     FILES_MATCHING PATTERN "*.hpp*")
     
+INCLUDE(CPack)
+
 ##############################################################################
 # Print Summary
 ##############################################################################

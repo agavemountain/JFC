@@ -21,3 +21,6 @@ ADD_LIBRARY(jfc SHARED
 	string_utilities.cpp
 )
 
+install(TARGETS jfc DESTINATION bin)
+
+
