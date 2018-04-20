@@ -1,3 +1,12 @@
+/*
+ * @(#) string_utilities.hpp
+ *
+ * @author Joe Turner (joe@agavemountain.com)
+ *
+ * Copyright (c) 2018 Joe Turner
+ * All rights reserved.
+ *
+ */
 #include <algorithm>
 #include <functional>
 #include <cctype>
@@ -25,6 +34,32 @@
 */
 
 namespace JFC
+{
+
+/**
+ * \brief Search and replace text within a string
+ *
+ * This function will search for the exact text string specified and
+ * replace all instances within a string.
+ *
+ * \param str	        string to be modified
+ * \param replaceThis	text to be searched for and replaced, (this is old substring to be replaced).
+ * \param withThis		text to replace the original found text
+ *
+ */
+template <class T>
+void replace(T& source, const T& find, const T& replace)
+{
+    size_t j;
+    for (; (j = source.find( find )) != T::npos;)
+    {
+        source.replace( j, find.length(), replace );
+    }
+}
+
+
+//! To be implemented (merged from other projects) with unit tests.
+namespace unimplemented
 {
 
 /**
@@ -161,7 +196,7 @@ void reverse(std::string &str);
  */
 void join(std::string &str, std::vector<std::string> vec);
 
-void replace(std::string &str, std::string &replaceThis, std::string &withThis);
+
 
 std::string trim_left( std::string & src );
 std::string ltrim_copy(std::string &src);
@@ -169,6 +204,8 @@ std::string trim_right( std::string & src );
 std::string rtrim_copy(std::string &src);
 std::string trim( std::string & src );
 std::string trim_copy(std::string &src);
+
+} // namespace unimplemented
 
 };
 
