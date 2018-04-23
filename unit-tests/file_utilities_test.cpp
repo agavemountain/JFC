@@ -20,6 +20,7 @@ public:
 
     }
 
+
 }; //class
 
 CPPUNIT_TEST_SUITE_REGISTRATION( file_utilities_test );

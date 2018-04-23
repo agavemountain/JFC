@@ -20,6 +20,13 @@ inline bool doesFileExist (const std::string& filename) {
 //!
 void touch(const std::string& pathname);
 
+//! \brief Take a string and push it to a file
+//!
+//! \param  pathname    file to create or touch
+//! \param  data        text to push into the file.
+//!
+bool stringToFile(const std::string& pathname, const std::string &data);
+
 }
 
 #endif
