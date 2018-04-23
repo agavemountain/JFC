@@ -98,16 +98,11 @@ std::string replace_copy(const std::string& source, const std::string& findstr, 
  */
 std::string wordwrap( std::string str, int width ) ;
 
-//! To be implemented (merged from other projects) with unit tests.
-namespace unimplemented
-{
-
-
 /**
  * \brief Center justify referenced string object.
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  *
  * \code
@@ -123,8 +118,8 @@ void center_justify(std::string &str, int width, char fill = ' ');
 /**
  * \brief Left justify referenced string object.
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  *
  * \code
@@ -133,14 +128,14 @@ void center_justify(std::string &str, int width, char fill = ' ');
  * print("String: ", tmp)
  *
  * String: hello.....
- * \endcode	 */
+ * \endcode      */
 void left_justify(std::string &str, int width, char fill = ' ');
 
 /**
  * \brief Right justify referenced string object.
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  */
 void right_justify(std::string &str, int width, char fill = ' ');
@@ -148,38 +143,45 @@ void right_justify(std::string &str, int width, char fill = ' ');
 /**
  * \brief Center justify a string and return a copy
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  *
  * \returns
- * 	This function returns the formatted string.
+ *      This function returns the formatted string.
  */
 std::string center_justify_copy(const std::string &str, int width, char fill = ' ');
 
 /**
  * \brief Left justify a string and return a copy
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  *
  * \returns
- * 	This function returns the formatted string.
+ *      This function returns the formatted string.
  */
 std::string left_justify_copy(const std::string &str, int width, char fill = ' ');
 
 /**
  * \brief Right justify a string and return a copy
  *
- * \param str		string to be center justified
- * \param width		number of characters in resultant string
+ * \param str           string to be center justified
+ * \param width         number of characters in resultant string
  * \param fill      character to pad the resulting string.  If not specified, default is spaces.
  *
  * \returns
- * 	This function returns the formatted string.
+ *      This function returns the formatted string.
  */
-std::string right_justify(const std::string &str, int width, char fill = ' ');
+std::string right_justify_copy(const std::string &str, int width, char fill = ' ');
+
+
+//! To be implemented (merged from other projects) with unit tests.
+namespace unimplemented
+{
+
+
 
 /**
  * \brief Remove the last character from a string.

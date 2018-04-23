@@ -8,6 +8,7 @@ class string_utilities_test : public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE( string_utilities_test );
     CPPUNIT_TEST( test_replace );
     CPPUNIT_TEST( test_wordwrap );
+    CPPUNIT_TEST( test_left_justify );
     CPPUNIT_TEST_SUITE_END();
 public:
 
@@ -49,6 +50,38 @@ public:
         //CPPUNIT_ASSERT_EQUAL(expected, wordwrap( source, 5) ) ;
     }
 
+    void test_left_justify()
+    {
+      string source = "hello world";  //
+      string expected = "hello world         ";
+
+        // source less than number of characters, just leave it alone.
+        CPPUNIT_ASSERT_EQUAL(source, left_justify_copy(source, 3)) ;
+        CPPUNIT_ASSERT_EQUAL(expected, left_justify_copy(source, 20));
+
+    }
+
+    void test_right_justify()
+    {
+      string source = "hello world";  //
+      string expected = "         hello world";
+
+        // source less than number of characters, just leave it alone.
+        CPPUNIT_ASSERT_EQUAL(source, right_justify_copy(source, 3)) ;
+        CPPUNIT_ASSERT_EQUAL(expected, right_justify_copy(source, 20));
+
+    }
+
+    void test_center_justify()
+    {
+      string source = "hello  world";  //
+      string expected = "     hello world     ";
+
+        // source less than number of characters, just leave it alone.
+        CPPUNIT_ASSERT_EQUAL(source, right_justify_copy(source, 3)) ;
+        CPPUNIT_ASSERT_EQUAL(expected, right_justify_copy(source, 20));
+
+    }
 };
 
 CPPUNIT_TEST_SUITE_REGISTRATION( string_utilities_test );
