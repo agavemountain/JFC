@@ -24,10 +24,10 @@ void touch(const std::string& pathname)
     if (fd<0) // Couldn't open that path.
     {
         std::cerr
-            << __PRETTY_FUNCTION__
-            << ": Couldn't open() path \""
-            << pathname
-            << "\"\n";
+                << __PRETTY_FUNCTION__
+                << ": Couldn't open() path \""
+                << pathname
+                << "\"\n";
         return;
     }
     int rc = utimensat(AT_FDCWD,
@@ -37,10 +37,10 @@ void touch(const std::string& pathname)
     if (rc)
     {
         std::cerr
-            << __PRETTY_FUNCTION__
-            << ": Couldn't utimensat() path \""
-            << pathname
-            << "\"\n";
+                << __PRETTY_FUNCTION__
+                << ": Couldn't utimensat() path \""
+                << pathname
+                << "\"\n";
         return;
     }
 

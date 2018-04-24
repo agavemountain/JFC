@@ -10,8 +10,8 @@ namespace JFC
 //! \returns
 //!     true if the file exists, else false.
 inline bool doesFileExist (const std::string& filename) {
-  struct stat buffer;
-  return (stat (filename.c_str(), &buffer) == 0);
+    struct stat buffer;
+    return (stat (filename.c_str(), &buffer) == 0);
 }
 
 //! \brief An implementation of the unix touch command
