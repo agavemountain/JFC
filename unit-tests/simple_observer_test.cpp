@@ -9,7 +9,7 @@
  */
 #include <cppunit/extensions/HelperMacros.h>
 #include <patterns/simple_observer.hpp>
-using namespace JFC::patterns;
+using namespace JFC::Patterns;
 using namespace std;   // so sue me, I'm lazy tonight.
 
 class MyObserver : public SimpleObserver
