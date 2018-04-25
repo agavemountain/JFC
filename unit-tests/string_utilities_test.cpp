@@ -52,8 +52,8 @@ public:
 
     void test_left_justify()
     {
-      string source = "hello world";  //
-      string expected = "hello world         ";
+        string source = "hello world";  //
+        string expected = "hello world         ";
 
         // source less than number of characters, just leave it alone.
         CPPUNIT_ASSERT_EQUAL(source, left_justify_copy(source, 3)) ;
@@ -63,8 +63,8 @@ public:
 
     void test_right_justify()
     {
-      string source = "hello world";  //
-      string expected = "         hello world";
+        string source = "hello world";  //
+        string expected = "         hello world";
 
         // source less than number of characters, just leave it alone.
         CPPUNIT_ASSERT_EQUAL(source, right_justify_copy(source, 3)) ;
@@ -74,8 +74,8 @@ public:
 
     void test_center_justify()
     {
-      string source = "hello  world";  //
-      string expected = "     hello world     ";
+        string source = "hello  world";  //
+        string expected = "     hello world     ";
 
         // source less than number of characters, just leave it alone.
         CPPUNIT_ASSERT_EQUAL(source, right_justify_copy(source, 3)) ;
