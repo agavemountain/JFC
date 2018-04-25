@@ -5,7 +5,20 @@
 
  \section intro Introduction
 
- Welcome to Joe's Foundation Class Library.
+ Welcome to Joe's Foundation Class Library.  This is a C++ library
+ that contains classes, templates, design patterns and idioms that are being merged
+ from other projects, for better reuse.
+
+ Please note, that in almost every case there are better options such as
+ boost, pico, and a slew of other, better maintained libraries.  Almost all
+ of the code here came from various constraints such as legacy compiler versions,
+ wierd computer architectures, or other constraints that you probably don't have.
+
+  \section Categories
+ Click on the link(s) below on the description of some of the code:
+
+ - \ref designpatterns
+
 
  \tableofcontents
 
