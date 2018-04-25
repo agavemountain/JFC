@@ -12,7 +12,7 @@
 #include <set>
 namespace JFC
 {
-namespace patterns
+namespace Patterns
 {
 
 class SimpleSubject;
@@ -30,6 +30,7 @@ class SimpleSubject;
 //! registers with the subject.  Observers are notified by
 //! the subject.
 //!
+//! \ingroup designpatterns
 class SimpleObserver {
 public:
   virtual void update(SimpleSubject & subject) = 0;
