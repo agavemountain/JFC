@@ -27,6 +27,12 @@ void touch(const std::string& pathname);
 //!
 bool stringToFile(const std::string& pathname, const std::string &data);
 
+//! \brief Checks to see if a directory exists
+//!
+//! \param pathname     directory path
+//!
+//! \returns true if exists, else false.
+bool doesDirectoryExist( const char* pzPath );
 }
 
 #endif

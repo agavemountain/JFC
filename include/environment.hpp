@@ -160,7 +160,7 @@ public:
     //!   and getenv("HOMEPATH") are concatinated.
     //! - OS X getpwuid for GIU applications.
     //!
-    std::string home_path();
+    static std::string home_path();
 
 };
 

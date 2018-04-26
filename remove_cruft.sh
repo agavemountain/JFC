@@ -19,3 +19,6 @@ rm `find . -name "*.orig" | xargs`
 echo "removing doxygen documentation."
 rm -rf html
 
+dos2unix src/*.cpp
+dos2unix include/*.hpp
+
