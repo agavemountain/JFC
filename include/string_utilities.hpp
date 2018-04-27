@@ -16,7 +16,8 @@
 /**
  \page strutil String Handling Utility Functions
 
-	This is a collection of string handling functions.
+	This library contains a collection of code working with
+	strings and text files.
 
 	Whatever the reason, I've had to hand-roll string handling
 	functions that should have been included in the standard library
@@ -176,35 +177,22 @@ std::string left_justify_copy(const std::string &str, int width, char fill = ' '
  */
 std::string right_justify_copy(const std::string &str, int width, char fill = ' ');
 
-
-//! To be implemented (merged from other projects) with unit tests.
-namespace unimplemented
-{
-
-
-
 /**
- * \brief Remove the last character from a string.
- *
- * Chops off the last character of a string and returns the character chopped. It's
- * used primarily to remove the newline from the end of an input record, but is much
- * more efficient than s/\n// because it neither scans nor copies the string.
+ * \brief Reverse characters in a string
  *
  * \param str	string to be modified
  */
-char chop(std::string &str);
+void reverse_string(std::string &str);
 
 /**
- * \brief Remove a trailing record separator from a string
+ * \brief Reverse characters in a string
  *
- * This is a slightly safer version of chop. It removes any line ending and returns the total
- * number of characters removed from all its arguments. It's often used to remove the
- * newline from the end of an input record when you're worried that the final
- * record may be missing its newline.
+ * \param str	string to be reversed
  *
- * \param str	string to be modified
+ * \returns modified string
  */
-int chomp(std::string &str);
+std::string reverse_string_copy( const std::string &str);
+
 
 /**
  * \brief Transform a string into only lower case characters.
@@ -221,26 +209,47 @@ void to_lower_case(std::string &str);
 void to_upper_case(std::string &str);
 
 /**
+ * \brief Remove the last character from a string.
+ *
+ * Chops off the last character of a string and returns the character chopped. It's
+ * used primarily to remove the newline from the end of an input record, but is much
+ * more efficient than s/\n// because it neither scans nor copies the string.
+ *
+ * \param str	string to be modified
+ */
+char chop(std::string &str);
+
+//! To be implemented (merged from other projects) with unit tests.
+namespace unimplemented
+{
+
+//void split(const std::string s, char c, std::vector<std::string>& vec)
+/
+
+/**
+ * \brief Remove a trailing record separator from a string
+ *
+ * This is a slightly safer version of chop. It removes any line ending and returns the total
+ * number of characters removed from all its arguments. It's often used to remove the
+ * newline from the end of an input record when you're worried that the final
+ * record may be missing its newline.
+ *
+ * \param str	string to be modified
+ */
+int chomp(std::string &str);
+
+/**
  * \brief Capitalize first character in a string.
  *
  * \param str	string to be modified
  */
 void ucfirst(std::string &str);
 
-/**
- * \brief Reverse characters in a string
- *
- * \param str	string to be modified
- */
-void reverse(std::string &str);
 
 /**
  * \brief Change first character to lower case in a string.
  */
 void join(std::string &str, std::vector<std::string> vec);
-
-
-
 std::string trim_left( std::string & src );
 std::string ltrim_copy(std::string &src);
 std::string trim_right( std::string & src );

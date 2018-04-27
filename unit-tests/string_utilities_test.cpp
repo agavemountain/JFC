@@ -7,8 +7,19 @@ using namespace std;   // so sue me, I'm lazy
 class string_utilities_test : public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE( string_utilities_test );
     CPPUNIT_TEST( test_replace );
+    CPPUNIT_TEST( test_replace_copy );
     CPPUNIT_TEST( test_wordwrap );
     CPPUNIT_TEST( test_left_justify );
+    CPPUNIT_TEST( test_right_justify );
+    CPPUNIT_TEST( test_center_justify );
+    CPPUNIT_TEST( test_left_justify_copy );
+    CPPUNIT_TEST( test_right_justify_copy );
+    CPPUNIT_TEST( test_center_justify_copy );
+    CPPUNIT_TEST( test_reverse_string );
+    CPPUNIT_TEST( test_reverse_string_copy );
+    CPPUNIT_TEST( test_to_lower_case );
+    CPPUNIT_TEST( test_to_upper_case );
+    CPPUNIT_TEST( test_chop );
     CPPUNIT_TEST_SUITE_END();
 public:
 
@@ -29,6 +40,11 @@ public:
         CPPUNIT_ASSERT_EQUAL(replace_copy("abcabc", "ab", ""), string("cc"));
         CPPUNIT_ASSERT_EQUAL(replace_copy("abcdef", "", ""), string("abcdef"));
 
+    }
+
+    void test_replace_copy()
+    {
+        //! \todo implement unit test
     }
 
     void test_wordwrap()
@@ -74,13 +90,79 @@ public:
 
     void test_center_justify()
     {
-        string source = "hello  world";  //
-        string expected = "     hello world     ";
+        string source = "hello world";  //
+        string expected = "    hello world     ";
 
         // source less than number of characters, just leave it alone.
         CPPUNIT_ASSERT_EQUAL(source, right_justify_copy(source, 3)) ;
         CPPUNIT_ASSERT_EQUAL(expected, right_justify_copy(source, 20));
 
+    }
+
+    void test_left_justify_copy()
+    {
+        //! \todo implement unit test
+    }
+
+    void test_right_justify_copy ()
+    {
+        //! \todo implement unit test
+    }
+
+    void test_center_justify_copy()
+    {
+        //! \todo implement unit test
+    }
+
+    void test_reverse_string_copy()
+    {
+        string target = "1234567890";
+        string expected = "0987654321";
+        reverse_string(target);
+        CPPUNIT_ASSERT_EQUAL(expected, target);
+    }
+
+    void test_reverse_string()
+    {
+        string target = "1234567890";
+        string expected = "0987654321";
+
+        string actual = reverse_string_copy(target);
+        CPPUNIT_ASSERT_EQUAL(expected, actual);
+    }
+
+    void test_to_lower_case()
+    {
+        string target = "HELLO world";
+        string expected = "hello world";
+
+        to_lower_case(target);
+        CPPUNIT_ASSERT_EQUAL(expected, target);
+    }
+
+    void test_to_upper_case()
+    {
+        string target = "HELLO world";
+        string expected = "HELLO WORLD";
+
+        to_upper_case(target);
+        CPPUNIT_ASSERT_EQUAL(expected, target);
+    }
+
+
+    void test_chop()
+    {
+        string frog = "frog";
+        char ch = chop(frog);
+
+        printf("ch = %c",ch);
+        CPPUNIT_ASSERT_EQUAL(ch, 'g');
+        CPPUNIT_ASSERT(frog ==  "fro");
+
+        frog = "";
+        ch = chop(frog);
+        CPPUNIT_ASSERT_EQUAL(ch, '\0');
+        CPPUNIT_ASSERT(frog == "");
     }
 };
 
