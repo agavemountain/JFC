@@ -7,6 +7,8 @@
  * All rights reserved.
  *
  */
+#ifndef _STRING_UTILITIES_HPP_
+#define _STRING_UTILITIES_HPP_
 #include <algorithm>
 #include <functional>
 #include <cctype>
@@ -224,7 +226,6 @@ namespace unimplemented
 {
 
 //void split(const std::string s, char c, std::vector<std::string>& vec)
-/
 
 /**
  * \brief Remove a trailing record separator from a string
@@ -262,3 +263,4 @@ std::string trim_copy(std::string &src);
 };
 
 
+#endif
