@@ -12,6 +12,7 @@
 #include <cctype>
 #include <locale>
 #include <string>
+#include <vector>
 
 /**
  \page strutil String Handling Utility Functions
