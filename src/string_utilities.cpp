@@ -73,5 +73,40 @@ std::string center_justify_copy(const std::string &str, int width, char fill )
     return tmp;
 }
 
+void reverse_string(std::string &str)
+{
+    std::reverse(str.begin(), str.end());
+}
+
+std::string reverse_string_copy( const std::string &str)
+{
+    std::string result;
+    result.assign(str.rbegin(), str.rend());
+    return result;
+}
+
+void to_upper_case(std::string &str)
+{
+    for (std::string::iterator p = str.begin(); p != str.end(); ++p) {
+        *p = toupper(*p);
+    }
+}
+
+void to_lower_case(std::string &str) {
+    for (std::string::iterator p = str.begin(); p != str.end(); ++p)
+    {
+        *p = tolower(*p);
+    }
+}
+
+char chop(std::string &str)
+{
+    char ch = 0x00;
+    int len = str.length();
+    if (len == 0) return ch;
+    ch = str[len-1];
+    str.pop_back();
+    return ch;
+}
 
 };

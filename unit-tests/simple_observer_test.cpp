@@ -15,9 +15,11 @@ using namespace std;   // so sue me, I'm lazy tonight.
 class MyObserver : public SimpleObserver
 {
 public:
-	int count;
-	MyObserver() : count(0) {}
-	virtual void update(SimpleSubject & subject) { count++; }
+    int count;
+    MyObserver() : count(0) {}
+    virtual void update(SimpleSubject & subject) {
+        count++;
+    }
 };
 
 class simple_observer_test : public CppUnit::TestFixture {
@@ -28,7 +30,7 @@ public:
 
     void test_observer()
     {
-    	MyObserver obs;
+        MyObserver obs;
         CPPUNIT_ASSERT_EQUAL( 0, obs.count );
 
         SimpleSubject sub;

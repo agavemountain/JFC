@@ -4,6 +4,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <utime.h>
+#include <dirent.h>
+
 
 #include <iostream>
 #include <string>
@@ -15,6 +17,25 @@
 
 namespace JFC
 {
+
+bool doesDirectoryExist( const char* pzPath )
+{
+    if ( pzPath == NULL) return false;
+
+    DIR *pDir;
+    bool bExists = false;
+
+    pDir = opendir (pzPath);
+
+    if (pDir != NULL)
+    {
+        bExists = true;
+        (void) closedir (pDir);
+    }
+
+    return bExists;
+}
+
 
 void touch(const std::string& pathname)
 {

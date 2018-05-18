@@ -21,6 +21,7 @@ ADD_LIBRARY(jfc SHARED
 	string_utilities.cpp
 	escape.cpp
 	file_utilities.cpp
+	date_time.cpp
 )
 
 install(TARGETS jfc DESTINATION bin)

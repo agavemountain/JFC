@@ -33,7 +33,7 @@ class SimpleSubject;
 //! \ingroup designpatterns
 class SimpleObserver {
 public:
-  virtual void update(SimpleSubject & subject) = 0;
+    virtual void update(SimpleSubject & subject) = 0;
 };
 
 
@@ -43,20 +43,24 @@ public:
 // also knows as Observable in literature
 class SimpleSubject
 {
-	//! collection of observers.
-  std::set<SimpleObserver*> observers;
+    //! collection of observers.
+    std::set<SimpleObserver*> observers;
 
 public:
-  void attachObserver(SimpleObserver *o) { observers.insert(o); }
-  void detachObserver(SimpleObserver *o) { observers.erase(o); }
-
-  void notifyObservers()
-  {
-    for (auto &o : observers)
-    {
-      o->update(*this);
+    void attachObserver(SimpleObserver *o) {
+        observers.insert(o);
     }
-  }
+    void detachObserver(SimpleObserver *o) {
+        observers.erase(o);
+    }
+
+    void notifyObservers()
+    {
+        for (auto &o : observers)
+        {
+            o->update(*this);
+        }
+    }
 
 };
 
